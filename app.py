@@ -11,9 +11,9 @@ def download_video():
 
     if url and save_path:
         ydl_opts = {
-            "format": "best",  # Baixa na melhor qualidade disponível
-            "outtmpl": save_path
-            + "/%(title)s.%(ext)s",  # Salva o vídeo na pasta escolhida
+            "format": "bestvideo+bestaudio/best",  # Baixa o melhor vídeo e áudio disponíveis
+            "merge_output_format": "mp4",  # Combina vídeo e áudio em um arquivo MP4
+            "outtmpl": f"{save_path}/%(title)s.%(ext)s",  # Salva o vídeo na pasta escolhida
         }
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
